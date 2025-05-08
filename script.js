@@ -1,45 +1,51 @@
 document.addEventListener("DOMContentLoaded", () => {
-  // === Slideshow for Home Page Images ===
+  // === Slideshow Delay Until Loaded ===
   const slideshows = document.querySelectorAll(".slideshow");
+
   slideshows.forEach(slideshow => {
     const images = slideshow.querySelectorAll("img");
     let index = 0;
+    let loadedImages = 0;
 
-    if (images.length > 1) {
-      images[index].classList.add("active");
+    images.forEach(img => {
+      img.onload = () => {
+        loadedImages++;
+        if (loadedImages === images.length) {
+          images[index].classList.add("active");
+          setInterval(() => {
+            images[index].classList.remove("active");
+            index = (index + 1) % images.length;
+            images[index].classList.add("active");
+          }, 3000);
+        }
+      };
 
-      setInterval(() => {
-        images[index].classList.remove("active");
-        index = (index + 1) % images.length;
-        images[index].classList.add("active");
-      }, 3000);
-    }
+      // Force trigger if already cached
+      if (img.complete) img.onload();
+    });
   });
 
-  // === Modal Image Viewer Setup ===
+  // === Modal Setup ===
   const modal = document.getElementById("imageModal");
   const modalImg = document.getElementById("modalImage");
 
   if (modal && modalImg) {
-    const clickableImages = document.querySelectorAll("img:not(.logo):not(.modal img):not(.no-modal)");
+    const images = document.querySelectorAll("img:not(.logo):not(.modal img):not(.no-modal)");
 
-    clickableImages.forEach(img => {
+    images.forEach(img => {
       img.addEventListener("click", () => {
         modal.style.display = "flex";
         modalImg.src = img.src;
       });
     });
 
-    // Close modal if clicking outside the image
     window.addEventListener("click", (e) => {
-      if (e.target === modal) {
-        modal.style.display = "none";
-      }
+      if (e.target === modal) modal.style.display = "none";
     });
   }
 });
 
-// === Modal Functions for HTML use ===
+// === HTML-triggered Modals ===
 function closeImageModal() {
   const modal = document.getElementById("imageModal");
   if (modal) modal.style.display = "none";

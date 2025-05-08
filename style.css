@@ -1,37 +1,46 @@
+/* === Reset & Base === */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-body {
+html, body {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   background-color: #f5f0eb;
   color: #3d2b1f;
   line-height: 1.6;
 }
 
+/* === Header === */
 header {
   background-color: #d2b48c;
   padding: 1rem;
   text-align: center;
 }
 
-header img {
-  width: 120px;
+header img.logo {
+  width: 140px;
+  max-width: 100%;
+  height: auto;
   display: block;
   margin: 0 auto 10px;
 }
 
+/* === Navigation === */
 nav ul {
   display: flex;
   justify-content: center;
   list-style: none;
   background-color: #3d2b1f;
+  flex-wrap: wrap;
 }
 
 nav ul li {
-  margin: 0 15px;
+  margin: 0 10px;
 }
 
 nav ul li a {
@@ -47,8 +56,9 @@ nav ul li a:hover {
   color: #3d2b1f;
 }
 
+/* === Main & Sections === */
 main {
-  padding: 20px;
+  padding: 20px 10px;
   max-width: 1000px;
   margin: 0 auto;
 }
@@ -62,9 +72,11 @@ section {
   margin-bottom: 30px;
 }
 
-.shop-section, .gallery-grid {
+/* === Shop & Gallery Layout === */
+.shop-section,
+.gallery-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
   gap: 15px;
 }
 
@@ -74,8 +86,11 @@ section {
   height: auto;
   border-radius: 8px;
   border: 2px solid #d2b48c;
+  cursor: pointer;
+  display: block;
 }
 
+/* === Form === */
 form {
   display: flex;
   flex-direction: column;
@@ -99,6 +114,7 @@ button:hover {
   color: #3d2b1f;
 }
 
+/* === Footer === */
 footer {
   text-align: center;
   padding: 1rem;
@@ -106,25 +122,20 @@ footer {
   color: white;
   margin-top: 20px;
 }
-/* Slight increase in logo size */
-header img {
-  width: 140px; /* Originally 120px */
-}
 
-/* Slideshow (Home only) */
+/* === Slideshow === */
 .slideshow img {
   display: none;
   width: 100%;
   height: auto;
   border-radius: 8px;
-  cursor: pointer;
 }
 
 .slideshow img.active {
   display: block;
 }
 
-/* Modal popup */
+/* === Modal Viewer === */
 .modal {
   display: none;
   position: fixed;
@@ -164,7 +175,8 @@ header img {
   font-size: 16px;
   text-decoration: none;
 }
-/* Terms Modal Styling */
+
+/* === Terms Modal === */
 .terms-content {
   background-color: #fff;
   max-width: 800px;
@@ -188,50 +200,50 @@ header img {
 
 .terms-content li {
   margin-bottom: 12px;
-}.contact-info-icons {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 20px;
-  margin-top: 10px;
 }
 
-.contact-info-icons img {
-  height: 30px;
-  width: 30px;
-  object-fit: contain;
-}
-.contact-info-icons {
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-  margin-top: 10px;
-}
-
-.contact-info-icons img {
-  width: 40px;
-  height: 40px;
-  cursor: pointer;
-}
+/* === Contact Section === */
 .contact-row {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 10px;
+  margin-top: 15px;
 }
 
 .contact-row p {
-  margin: 0;
   font-size: 1.1rem;
+  text-align: center;
 }
 
 .contact-info-icons {
   display: flex;
   justify-content: center;
-  gap: 20px;
+  gap: 15px;
+  flex-wrap: wrap;
 }
 
 .contact-info-icons img {
   width: 35px;
-  height: auto;
+  height: 35px;
+  object-fit: contain;
+  transition: transform 0.3s ease;
 }
+
+.contact-info-icons img:hover {
+  transform: scale(1.1);
+}
+
+/* === Responsive Tweaks for Mobile === */
+@media (max-width: 500px) {
+  nav ul {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .shop-section,
+  .gallery-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
