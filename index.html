@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Slime World - Home</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <img src="img/logo.png" alt="Slime World Logo" class="logo">
+    <h1>Welcome to Slime World</h1>
+  </header>
+
+  <nav>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="shop.html">Shop</a></li>
+      <li><a href="gallery.html">Gallery</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="feedback.html">Feedback</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <h2>Fresh Streetwear for the Culture</h2>
+
+    <div class="shop-section">
+      <div class="slideshow">
+        <img src="img/tshirt2.png" class="active" alt="T-shirt 1">
+        <img src="img/tshirt3.png" alt="T-shirt 2">
+        <img src="img/tshirt4.png" alt="T-shirt 3">
+      </div>
+
+      <div class="slideshow">
+        <img src="img/hoodie1.png" class="active" alt="Hoodie 1">
+        <img src="img/hoodie2.png" alt="Hoodie 2">
+        <img src="img/hoodie3.png" alt="Hoodie 3">
+      </div>
+
+      <div class="slideshow">
+        <img src="img/pants1.png" class="active" alt="Pants 1">
+        <img src="img/pants2.png" alt="Pants 2">
+        <img src="img/pants3.png" alt="Pants 3">
+      </div>
+    </div>
+
+    <section class="contact-info">
+      <h2>To Purchase Please Contact Slime World</h2>
+      <div class="contact-row">
+        <p class="click-text"><a href="https://wa.me/26772461643" target="_blank"><strong>CLICK HERE</strong></a></p>
+        <div class="contact-info-icons">
+          <a href="https://wa.me/26772461643" target="_blank">
+            <img src="img/whatsapp.png" alt="WhatsApp Icon" class="no-modal">
+          </a>
+          <a href="https://www.facebook.com/share/1CASbFaqWS/?mibextid=wwXIfr" target="_blank">
+            <img src="img/facebook.png" alt="Facebook Icon" class="no-modal">
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    &copy; 2025 Slime World | 
+    <a href="#" onclick="openTerms()">Terms & Conditions</a>
+  </footer>
+
+  <!-- Image Modal -->
+  <div id="imageModal" class="modal">
+    <span class="modal-close" onclick="closeImageModal()">&times;</span>
+    <img id="modalImage" src="img/logo.png" alt="Expanded Image">
+    <a href="https://wa.me/26772461643" target="_blank" class="buy-now">Buy Now on WhatsApp</a>
+  </div>
+
+  <!-- Terms Modal -->
+  <div id="termsModal" class="modal">
+    <span class="modal-close" onclick="closeTerms()">&times;</span>
+    <div class="terms-content">
+      <h2>Terms and Conditions</h2>
+      <ol>
+        <li>Products are handmade with minor variations.</li>
+        <li>Payments via Pay to Cell 72461643 (Obusitse Arthur Kgathatsa).</li>
+        <li>P90 delivery via Sprint Couriers.</li>
+        <li>No refunds. Exchanges within 3 days if wrong item.</li>
+        <li>Cancel after production = charge.</li>
+        <li>Must reply to WhatsApp/Facebook to avoid delays.</li>
+        <li>No reuse of Slime World designs without permission.</li>
+        <li>Policies may change without notice.</li>
+      </ol>
+    </div>
+  </div>
+
+  <script src="script.js" defer></script>
+</body>
+</html>
